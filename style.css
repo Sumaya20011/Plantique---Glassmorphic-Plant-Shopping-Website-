@@ -1,0 +1,82 @@
+@font-face {
+    font-family: "Lurga";
+    src: url("fonts/LufgaBold.woff2") format("woff2"),
+         url("fonts/LufgaBold.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lurga", woff2;
+    background-image: url("img/Subtract\ \(1\).png"); /* замени на свой путь */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+header {
+    padding: 20px 40px;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* раздвигает левую и правую группу */
+    align-items: center;
+    max-width: 1200px; /* ограничение ширины по центру (опционально) */
+    margin: 0 auto;    /* центрирует контейнер */
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* расстояние между элементами внутри группы */
+}
+
+.button1 {
+    width: 120px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 60px;
+    font-family: "Lurga", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.transparent-btn {
+    width: 120px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    font-family: "Lurga", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.baner{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.baner h1{
+   margin-right: 850px;
+   font-size: 45px;
+   color: rgb(255, 255, 255);
+   font-family: "Lufga";
+   top: 30px;
+}
+
+.baner h2{
+    color: azure;
+}
