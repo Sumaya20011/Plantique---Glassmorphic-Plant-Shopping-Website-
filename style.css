@@ -12,13 +12,13 @@
     box-sizing: border-box;
 }
 
-body {
+.conteiner-img {
     font-family: "Lurga", woff2;
-    background-image: url("img/Subtract\ \(1\).png"); /* замени на свой путь */
+    background-image: url("img/baground_plant.png"); /* замени на свой путь */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    min-height: 100vh;
+    min-height: 120vh;
 }
 
 header {
@@ -78,5 +78,516 @@ header {
 }
 
 .baner h2{
-    color: azure;
+    color: rgb(255, 255, 255);
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --color-bg: #f9fafb;
+    --color-text:#1f2937;
+    --color-accent: #8bc34a; 
+    --color-accent-dark:#689f38;
+    --shadow:0 10px 25px -5px rgba(0,0,0,0,1)
+    --transition: all 0.3s ease;
+}
+
+
+.hero {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* центрирует оба дочерних блока по горизонтали */
+    gap: 46px; /* расстояние между hero_content и hero_batan */
+}
+
+/* === HERO CONTENT === */
+.hero_content {
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero_title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--color-text);
+}
+
+.hero_subtitle {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #4b5563;
+}
+
+.hero_img {
+    filter: grayscale(100%);
+}
+
+.hero_plant {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+/* === HERO BUTTONS (BATAN) === */
+.hero_batan {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* расстояние между группой и кнопкой "See All" */
+    flex-wrap: wrap; /* на случай маленьких экранов */
+    justify-content: space-between; /* центрирует всё содержимое по горизонтали */
+    max-width: 1300px; /* чтобы не вылезало за пределы hero_content */
+    width: 100%;
+}
+
+/* Группа первых кнопок — теперь тоже в строку */
+.hero_first_button {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Все кнопки */
+.hero_batan button {
+    width: 190px;
+    height: 50px;
+    border-radius: 60px;
+    border: 0;
+    cursor: pointer;
+}
+
+.hero_black {
+    background-color: #000000;
+    color: #f9fafb;
+}
+
+
+/* Общий контейнер */
+.hero_plants {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 60px 20px;
+  flex-wrap: wrap; /* адаптивность */
+}
+
+/* Стили карточки */
+.plant_card {
+  background-image: url("img/baground_card.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 633px;
+  height: 411px;
+  border-radius: 15px;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Вторая карточка — немного уже */
+.card_two {
+  width: 400px; /* или оставь 633px, если нужно одинаково */
+}
+
+/* Заголовок карточки */
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.card_title {
+  font-family: "Lurga", sans-serif;
+  font-size: 52px;
+  color: azure;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.card_icon {
+  width: 45px;
+  height: auto;
+}
+
+/* Текст карточки */
+.card_text {
+  font-family: "Lurga", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: #f9fafb;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Линия-разделитель */
+.line_card {
+  margin-top: 50px;
+  height: 1px;
+  background-color: #b3b3b3;
+}
+
+/* Кнопка-изображение */
+.card_button_img {
+  margin-top: 40px;
+  width: 100px;
+  height: auto;
+  max-width: 100%;
+}
+
+.card_two{
+    background-image: url("img/flower.png");
+     filter: grayscale(100%);
+}
+
+.card_three{
+    background-image: url(img/baground_Succulents.png);
+    filter: grayscale(100%);
+}
+
+
+/* Контейнер с тремя карточками */
+.hero_plants {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; /* 🔑 ВСЕ КАРТОЧКИ РОВНО СВЕРХУ */
+  padding: 30px 20px;
+  /* flex-wrap убран — чтобы не переносились на десктопе */
+}
+
+/* Общие стили карточки */
+.plant_card {
+  width: 400px; /* Одинаковая ширина для ВСЕХ (если нужно — см. ниже) */
+  height: 411px; /* Фиксированная высота — чтобы не "плавали" */
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Если ПЕРВАЯ карточка должна быть ШИРЕ — раскомментируй это: */
+/*
+.plant_card:first-child {
+  width: 633px;
+}
+*/
+
+/* Фоны для каждой карточки */
+.plant_card:nth-child(1) {
+  background-image: url("img/baground_card.png");
+}
+
+.plant_card:nth-child(2) {
+  background-image: url("img/flower.png");
+  filter: grayscale(100%);
+}
+
+.plant_card:nth-child(3) {
+  background-image: url("img/baground_Succulents.png");
+  filter: grayscale(100%);
+}
+
+/* Внутренности карточки — выравниваем всё внутри */
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card_title {
+  font-family: "Lurga", sans-serif;
+  font-size: 36px; /* немного уменьшил, чтобы лучше влезало */
+  color: azure;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.card_icon {
+  width: 40px;
+}
+
+.card_text {
+  font-family: "Lurga", sans-serif;
+  font-size: 16px;
+  color: #f9fafb;
+  line-height: 1.5;
+  margin-bottom: auto; /* 🔑 "выталкивает" разделитель и кнопку вниз */
+}
+
+.line_card {
+  height: 1px;
+  background-color: #b3b3b3;
+  margin: 15px 0;
+}
+
+.card_button_img {
+  width: 80px;
+  height: auto;
+}
+
+.text_plant{
+    display: flex;
+    justify-content: space-around;
+   align-items: center;
+   gap: 50px;
+   margin-top: 40px;
+}
+
+.text_plant h1{
+  font-size: 110px;
+  font-weight: 900;
+  font-family: "Lurga", sans-serif;
+}
+
+.text_plant p{
+    font-size: 20px;
+    font-family: "Lurga", sans-serif;
+    font-weight: 600;
+}
+
+
+.new_plant_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.new_plant_card h1 {
+  font-size: 32px;
+  font-family: "Lurga", sans-serif;
+}
+
+.new_plant_card h3 {
+  font-size: 18px;
+  color: #959595;
+  font-family: "Lurga", sans-serif;
+  font-weight: 400;
+}
+
+/* Контейнер цены и кнопки — растягиваем по ширине */
+.price-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 🔑 кнопка — в самый правый край */
+  width: 100%;
+}
+
+.new_plant_card p {
+  font-family: "Lurga", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Круглая кнопка — чуть больше */
+.arrow-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #000;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0; /* не сжимается */
+}
+
+.heart_icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+
+
+
+.collection_text{
+  font-size: 67px;
+  text-align: center;
+
+}
+
+.collection_leaves img{
+  width: 685px;
+  height: 371px;
+  border-radius: 20px;
+}
+
+.img1{
+  width: 300px;
+  height: 200px;
+}
+
+.block_plant1{
+  width: 785px;
+  height: 300px;
+  background-image: url("img/bagroundleaves3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 17px;
+  position: relative;
+}
+
+.collection_leaves{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-top: 25px;
+}
+
+.block_plant2{
+  width: 525px;
+  height: 300px;
+  background-image: url("img/bagroundleaves2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 17px;
+  position: relative;
+  
+}
+
+.leaf-decor{
+  background-image: url("img/bagroundleaves1.jpg");
+}
+
+.leaf-element{
+  background-image: url("img/bagroundleaves4.jpg");
+}
+
+.block_plant1 img{
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  
+}
+ 
+.block_plant2 img{
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}
+
+.block_plant2 h1{
+   color: aliceblue;
+   font-size: 45px;
+   font-family: "Lurga", sans-serif;
+  position: absolute;
+  top: 205px;
+  right: 298px;
+}
+
+.leaf-decor h1{
+   font-size: 45px;
+  position: absolute;
+    top: 205px;
+  right: 180px;
+}
+
+.leaf-element h1{
+   color: aliceblue;
+   font-size: 45px;
+   font-family: "Lurga", sans-serif;
+  padding-top: 200px;
+  padding-left:20px ;
+}
+
+.garden h1{
+   font-family: "Lurga", sans-serif;
+   font-size: 90px;
+   margin-top: 50px;
+   align-items: center;
+   text-align: center;
+}
+
+.garden{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 60px;
+  align-items: center;
+  gap: 40px;
+}
+
+.garden img{
+  width: 600px;
+}
+
+.garden p{
+   text-align: center;
+    font-family: "Lurga", sans-serif;
+    font-weight: bold;
+}
+
+.garden-container{
+  position: relative;
+  
+}
+
+.garden_icon{
+  width: 2px;
+  position: absolute;
+
+}
+
+.order{
+  display: flex;
+  justify-content: space-between;
+  width: 1228px;
+  border: 1.50px solid black;
+  height: 125px;
+  border-radius: 30px;
+  align-items: center;
+  padding: 60px 40px;
+  margin-top: 20px;
+}
+
+.question{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200px;
+}
+
+.order img{
+ border: 1px solid black;
+ border-radius: 50px;
+}
+
+.text_flex{
+  width: 800px;
+}
+
+.Servies{
+  width: 800px;
+  border: 1.50px solid black;
+  height: 125px;
+  border-radius: 30px;
+  align-items: center;
+  padding: 0px 40px;
+}
+
+.text_flex p{
+    font-size: 16px;
+    margin-top: 13px;
+  font-weight: bold;
 }
