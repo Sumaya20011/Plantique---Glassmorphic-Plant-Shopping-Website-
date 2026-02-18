@@ -12,6 +12,11 @@
     box-sizing: border-box;
 }
 
+body{
+  overflow-x: hidden;
+}
+
+
 .conteiner-img {
     font-family: "Lurga", woff2;
     background-image: url("img/baground_plant.png"); /* замени на свой путь */
@@ -830,4 +835,671 @@ footer {
     margin-top: 50px;
    font-size: 18px;
   
+}
+
+
+/* === УНИВЕРСАЛЬНЫЕ ПРАВИЛА (НЕ ЛОМАЮТ ДЕСКТОП) === */
+img,
+iframe,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Убираем опасные фиксированные отступы */
+.baner h1 {
+  margin-right: auto !important;
+}
+
+/* === АДАПТИВ ДЛЯ ПЛАНШЕТОВ (768px – 1024px) === */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0 20px;
+  }
+  
+  .hero_content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .hero_text {
+    max-width: 100%;
+  }
+  
+  .hero_img {
+    max-width: 100%;
+    width: 400px;
+  }
+  
+  .hero_batan {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .hero_first_button {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero_plants {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .plant_card {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .text_plant {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+  
+  .text_plant h1 {
+    font-size: 80px;
+  }
+  
+  .text_plant p {
+    font-size: 18px;
+  }
+  
+  .collection_leaves {
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .block_plant1,
+  .block_plant2 {
+    width: 100%;
+    max-width: 785px;
+    height: auto;
+    min-height: 300px;
+  }
+  
+  .blur-overlay {
+    margin-top: 40px;
+    padding: 15px;
+  }
+  
+  .blur-overlay h1 {
+    font-size: 48px;
+  }
+  
+  .garden {
+    padding: 20px 30px;
+  }
+  
+  .garden h1 {
+    font-size: 72px;
+  }
+  
+  .garden p {
+    font-size: 18px;
+  }
+  
+  .garden-img {
+    padding: 80px 50px;
+  }
+  
+  .order {
+    width: 100%;
+    max-width: 1000px;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 30px;
+    height: auto;
+  }
+  
+  .text_flex {
+    width: 100%;
+  }
+  
+  .order h1 {
+    font-size: 22px;
+  }
+  
+  .text_flex p {
+    font-size: 15px;
+  }
+  
+  .order-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  footer {
+    min-height: auto;
+    height: auto;
+    padding: 0 15px;
+    margin-top: 120px;
+  }
+  
+  .footer-text h1 {
+    font-size: 64px;
+  }
+  
+  .footer-text p {
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  
+  .blockwhite {
+    height: auto;
+    min-height: 320px;
+    padding: 30px 20px;
+  }
+  
+  .but {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    padding: 15px;
+  }
+  
+  .social {
+    gap: 12px;
+  }
+  
+  .social-btn {
+    width: 140px;
+    height: 48px;
+    font-size: 15px;
+  }
+  
+  .blockwhite p {
+    margin-top: 30px;
+    font-size: 16px;
+  }
+}
+
+/* === АДАПТИВ ДЛЯ МОБИЛЬНЫХ (< 768px) === */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+  
+  .header-left,
+  .header-right {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .button1,
+  .transparent-btn {
+    width: 100px;
+    height: 42px;
+    font-size: 14px;
+  }
+  
+  .baner {
+    margin-top: 30px;
+    padding: 0 15px;
+  }
+  
+  .baner h1 {
+    font-size: 36px;
+    margin: 0 auto 20px;
+  }
+  
+  .baner h2 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  .ofwhite img {
+    max-width: 90%;
+  }
+  
+  .hero {
+    padding: 40px 15px;
+    gap: 35px;
+  }
+  
+  .hero_title {
+    font-size: 2.25rem;
+  }
+  
+  .hero_subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero_plant {
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .hero_batan button {
+    width: 160px;
+    height: 46px;
+    font-size: 14px;
+  }
+  
+  .hero_plants {
+    padding: 40px 15px;
+  }
+  
+  .plant_card {
+    max-width: 100%;
+    padding: 25px;
+  }
+  
+  .card_title {
+    font-size: 32px;
+  }
+  
+  .card_text {
+    font-size: 15px;
+  }
+  
+  .card_button_img {
+    width: 70px;
+  }
+  
+  .text_plant h1 {
+    font-size: 64px;
+  }
+  
+  .text_plant p {
+    font-size: 16px;
+  }
+  
+  .new_plant_card {
+    max-width: 100%;
+  }
+  
+  .new_plant_card img:first-child {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+  }
+  
+  .new_plant_card h1 {
+    font-size: 28px;
+  }
+  
+  .new_plant_card h3 {
+    font-size: 16px;
+  }
+  
+  .new_plant_card p {
+    font-size: 17px;
+  }
+  
+  .arrow-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .collection_text h1 {
+    font-size: 52px;
+    padding: 0 15px;
+  }
+  
+  .block_plant1,
+  .block_plant2 {
+    min-height: 280px;
+  }
+  
+  .block_plant2 h1,
+  .leaf-decor h1,
+  .leaf-element h1 {
+    font-size: 38px;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    padding: 0 !important;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .blur-overlay h1 {
+    font-size: 42px;
+  }
+  
+  .blur-overlay p {
+    font-size: 15px;
+  }
+  
+  .garden h1 {
+    font-size: 60px;
+  }
+  
+  .garden p {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  
+  .garden-img {
+    padding: 60px 30px;
+  }
+  
+  .garden-img img {
+    width: 140px;
+  }
+  
+  .question {
+    margin-top: 120px;
+    padding: 25px 15px;
+  }
+  
+  .order {
+    width: 100%;
+    max-width: none;
+    padding: 25px;
+    margin-top: 15px;
+  }
+  
+  .order h1 {
+    font-size: 20px;
+  }
+  
+  .text_flex p {
+    font-size: 14px;
+  }
+  
+  .order-circle {
+    width: 56px;
+    height: 56px;
+  }
+  
+  footer {
+    margin-top: 100px;
+    padding: 0 15px;
+  }
+  
+  .footer-img img {
+    margin-top: 60px;
+    width: 90%;
+  }
+  
+  .footer-text h1 {
+    font-size: 52px;
+  }
+  
+  .footer-text p {
+    font-size: 18px;
+    margin-top: 35px;
+    padding: 0 10px;
+  }
+  
+  .blockwhite {
+    min-height: 350px;
+    padding: 25px 15px;
+    margin-top: 35px;
+  }
+  
+  .but {
+    max-width: 100%;
+    padding: 10px;
+  }
+  
+  .social {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .social-btn {
+    width: 100%;
+    max-width: 320px;
+    height: 54px;
+    font-size: 18px;
+  }
+  
+  .blockwhite hr {
+    margin: 25px 0 15px;
+  }
+  
+  .blockwhite p {
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+}
+
+/* === ЭКСТРА-ЗАЩИТА ОТ ГОРИЗОНТАЛЬНОГО СКРОЛЛА === */
+@media (max-width: 767px) {
+  * {
+    overflow-x: hidden !important;
+  }
+  
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  
+  [class*="container"],
+  [class*="content"],
+  [class*="wrapper"],
+  .header-container,
+  .hero_content,
+  .hero_plants,
+  .collection_leaves,
+  .garden,
+  .question,
+  .footer-parent,
+  .blockwhite {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Защита от длинных слов */
+  h1, h2, h3, h4, h5, h6, p, span, a, li {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+/* === БУРГЕР-МЕНЮ (ТОЛЬКО ДЛЯ МОБИЛЬНЫХ) === */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+}
+
+.burger-menu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 999;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.4s ease;
+}
+
+.mobile-menu.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu-content {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 40px 30px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  line-height: 1;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.mobile-btn {
+  width: 100%;
+  height: 55px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-family: "Lurga", sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.mobile-btn:hover {
+  background: #e0e0e0;
+  transform: translateX(5px);
+}
+
+.mobile-search {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.mobile-search img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* === АДАПТИВНОСТЬ БУРГЕРА === */
+@media (max-width: 1024px) {
+  .burger-menu {
+    display: flex;
+  }
+  
+  .header-left,
+  .header-right {
+    display: none;
+  }
+  
+  .header-container {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .header-left img {
+    display: block;
+    max-width: 120px;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-left img {
+    max-width: 100px;
+  }
+  
+  .ofwhite{
+    margin-top: 100px;
+  }
+  .burger-menu {
+    width: 30px;
+    height: 26px;
+  }
+  
+  .burger-menu span {
+    height: 2.5px;
+  }
+  
+  .mobile-menu-content {
+    padding: 30px 25px;
+  }
+  
+  .mobile-btn {
+    height: 50px;
+    font-size: 17px;
+    padding: 0 15px;
+  }
+  
+  .close-menu {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-left img {
+    max-width: 90px;
+  }
+  
+  .ofwhite{
+    margin-top: 100px;
+  }
+  .burger-menu {
+    width: 28px;
+    height: 24px;
+  }
+  
+  .burger-menu span {
+    height: 2px;
+  }
+  
+  .mobile-menu-content {
+    padding: 25px 20px;
+  }
+  
+  .mobile-btn {
+    height: 48px;
+    font-size: 16px;
+  }
+  
+  .close-menu {
+    font-size: 26px;
+  }
+  
+  .mobile-search img {
+    width: 26px;
+    height: 26px;
+  }
 }

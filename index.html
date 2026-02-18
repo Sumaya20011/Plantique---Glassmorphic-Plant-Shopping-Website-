@@ -8,24 +8,51 @@
 </head>
 <body>
   <div class="conteiner-img">
+    
     <header>
-      <div class="header-container">
-        <!-- Левая группа -->
-        <div class="header-left">
-          <img src="img/logo.png" alt="Logo" />
-          <button class="button1">Home</button>
-          <button class="transparent-btn">Contact</button>
-          <button class="transparent-btn">Blog</button>
-        </div>
+  <div class="header-container">
+    <!-- Левая группа -->
+    <div class="header-left">
+      <img src="img/logo.png" alt="Logo" />
+      <button class="button1">Home</button>
+      <button class="transparent-btn">Contact</button>
+      <button class="transparent-btn">Blog</button>
+    </div>
 
-        <!-- Правая группа -->
-        <div class="header-right">
-          <img src="img/icon_search.png" alt="Search" />
-          <button class="transparent-btn">Shop</button>
-          <button class="transparent-btn">Log in</button>
-        </div>
+    <!-- Правая группа -->
+    <div class="header-right">
+      <img src="img/icon_search.png" alt="Search" />
+      <button class="transparent-btn">Shop</button>
+      <button class="transparent-btn">Log in</button>
+    </div>
+
+    <!-- Бургер-меню (только для мобильных) -->
+    <button class="burger-menu" aria-label="Меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Выпадающее меню -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-content">
+      <button class="close-menu" aria-label="Закрыть">&times;</button>
+      
+      <div class="mobile-nav">
+        <button class="mobile-btn">Home</button>
+        <button class="mobile-btn">Contact</button>
+        <button class="mobile-btn">Blog</button>
+        <button class="mobile-btn">Shop</button>
+        <button class="mobile-btn">Log in</button>
       </div>
-    </header>
+      
+      <div class="mobile-search">
+        <img src="img/icon_search.png" alt="Search" />
+      </div>
+    </div>
+  </div>
+</header>
 
     <main class="baner">
       <h1>Plantique</h1>
@@ -284,5 +311,39 @@
       <hr><p>©2023, All Right Reserved.</p>
     </div>
   </footer>
+
+
+
+
+
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.querySelector('.burger-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.close-menu');
+    
+    // Открыть меню
+    burger.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden'; // блокируем скролл
+    });
+    
+    // Закрыть меню
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = ''; // возвращаем скролл
+    });
+    
+    // Закрыть меню при клике вне контента
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+</script>
 </body>
 </html>
