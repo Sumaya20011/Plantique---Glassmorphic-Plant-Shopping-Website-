@@ -1410,6 +1410,22 @@ body {
 
 /* === АДАПТИВНОСТЬ БУРГЕРА === */
 @media (max-width: 1024px) {
+
+.blur-overlay{
+  margin-top: 70px;
+}
+
+  .block_plant2 h1{
+    font-size: 60px;
+     text-align: center;
+    padding-bottom: 50px;
+  }
+
+  .block_plant1{
+    padding-top: 0;
+    text-align: center;
+  }
+
   .burger-menu {
     display: flex;
   }
@@ -1459,6 +1475,19 @@ body {
     padding: 0 15px;
   }
   
+  .blur-overlay{
+     background: rgba(250, 248, 248, 0.1); /* Полупрозрачный белый */
+      backdrop-filter: blur(0px);          /* Размытие фона за элементом */
+      -webkit-backdrop-filter: blur(0px); 
+  }
+
+
+  .garden-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .close-menu {
     top: 15px;
     right: 15px;
@@ -1501,5 +1530,13 @@ body {
   .mobile-search img {
     width: 26px;
     height: 26px;
+  }
+
+  .block_plant2{
+    padding-top: 50px;
+  }
+
+  .block_plant1{
+    padding-top: 70px;
   }
 }
