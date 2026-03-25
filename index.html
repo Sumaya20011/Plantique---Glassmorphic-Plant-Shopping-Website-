@@ -7,6 +7,27 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div  class="modal-content">
+        <div class="cross" id="cross" onclick="closeModal()"> <p>x</p></div>
+   <img class="modalImg" src="img/flower.png" alt="" id="modalImg">
+      <div class="modalInfo" id="modalInfo">
+       <div class="modaltext">
+       
+        <h1 id="modaltitle">orchids</h1>  
+       
+        <p id="modalP">  Orchids are easily everyone's favorite flowering plant.
+           Find new orchids and orchid success items in this collection.    
+            Orchids are easily everyone's favorite flowering plant. 
+           Find new orchids and orchid success items in this collection.</p>
+          
+      </div>
+        
+      </div>
+
+    </div>
+  </div>
   <div class="conteiner-img">
     
     <header>
@@ -85,22 +106,22 @@
 
     <div class="hero_batan">
       <div class="hero_first_button">
-        <button class="hero_black">Outdoor Plant</button>
-        <button>Indoor Plant</button>
-        <button>Flower Pot</button>
-        <button>Potted Plant</button>
+        <button class="hero_black" id="outdoorBtn" onclick="change1()">Outdoor Plant</button>
+        <button  id="indoorBtn" onclick="change2()">Indoor Plant</button>
+        <button id="flowerBtn" onclick="change3()">Flower Pot</button>
+        <button id="pottedBtn" onclick="change4()">Potted Plant</button>
       </div>
 
-      <button>See All</button>
+      <button id="allBtn" onclick="see_all()">See All</button>
     </div>
 
     <div class="hero_plants">
-      <div class="plant_card">
+      <div class="plant_card" id="card_img1">
         <div class="card_header">
-          <h2 class="card_title">Pet Friendly Plants</h2>
+          <h2 class="card_title" id="card_title">Pet Friendly Plants</h2>
           <img src="img/icon_search.png" alt="Search" class="card_icon" />
         </div>
-        <p class="card_text">
+        <p class="card_text" id="cardText">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.
         </p>
@@ -108,27 +129,151 @@
         <img src="img/piperacoeae.png" alt="Piperaceae" class="card_button_img" />
       </div>
 
-      <div class="plant_card card_two">
+      <div class="plant_card card_two" id="card_img2">
         <div class="card_header">
-          <h2 class="card_title">Orchids</h2>
+          <h2 class="card_title" id="card_title2">Orchids</h2>
         </div>
-        <p class="card_text">
+        <p class="card_text" id="card_text2">
           Orchids are easily everyone's favorite flowering plant. Find new orchids and orchid success items in this collection.
         </p>
         <div class="line_card"></div>
         <img src="img/icon_araceae.png" alt="Araceae" class="card_button_img" />
       </div>
 
-      <div class="plant_card card_three">
+      <div class="plant_card card_three" id="card_img3">
         <div class="card_header">
-          <h2 class="card_title">Succulents</h2>
+          <h2 class="card_title" id="card_title3">Succulents</h2>
         </div>
-        <p class="card_text">
+        <p class="card_text" id="card_text3">
           All succulents are cacti, but not all cacti are succulents. Both make low maintenance house plants.
         </p>
         <div class="line_card"></div>
         <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
       </div>
+
+      <div class="visible_plants " id="visible2">
+
+          <div class="plant_card card_four" id="card_img4">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title4">Air Purifying</h2>
+              </div>
+              <p class="card_text" id="card_text4">
+              These plants naturally filter toxins from the air, improving indoor air quality. Perfect for bedrooms, living rooms, and home offices where you spend most of your time.
+              </p>
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+
+
+           <div class="plant_card card_five" id="card_img5">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title3">Low Light Tolerant</h2>
+              </div>
+              <p class="card_text" id="card_text3">
+                Thriving in dim corners and spaces with minimal natural light, these resilient plants bring life to challenging areas of your home without demanding direct sunlight.
+              </p>
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+
+
+          <div class="plant_card card_six" id="card_img6">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title3">Humidity Lovers</h2>
+              </div>
+              <p class="card_text" id="card_text3">
+               Ideal for bathrooms and kitchens, these tropical beauties flourish in moist environments and add a lush, spa-like atmosphere to your humid spaces.
+              </p>
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+      </div>
+
+
+
+      <div class="visible_plants " id="visible3">
+
+          <div class="plant_card card_seven" id="card_img7">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title7">Ceramic Pots</h2>
+              </div>
+              <p class="card_text" id="card_text7">
+             Handcrafted ceramic pots with drainage holes, available in matte and glazed finishes. Each piece is uniquely made by local artisans, adding character to your plant display.
+              </p>
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+
+
+           <div class="plant_card card_eight" id="card_img8">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title8">Terracotta Collection</h2>
+              </div>
+              <p class="card_text" id="card_text8">
+                Classic breathable terracotta pots that help prevent overwatering. Their natural porous texture allows air and moisture to move through the walls, promoting healthy root growth.
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+
+
+          <div class="plant_card card_nine" id="card_img9">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title9">Modern Planters</h2>
+              </div>
+              <p class="card_text" id="card_text9">
+               Sleek geometric designs in concrete, metal, and recycled materials. Perfect for contemporary interiors, these planters combine functionality with minimalist aesthetics.
+              </p>
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+      </div>
+
+       <div class="visible_plants " id="visible4">
+
+          <div class="plant_card card_ten" id="card_img10">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title10">Ready-to-Grow Kits </h2>
+              </div>
+              <p class="card_text" id="card_text10">
+             Complete starter kits with everything you need: premium soil, seeds or starter plants, decorative pots, and easy-care instructions. Perfect for beginners and gift-giving.
+              </p>
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+
+
+           <div class="plant_card card_eleven" id="card_img11">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title11">Hanging Baskets</h2>
+              </div>
+              <p class="card_text" id="card_text11">
+               Beautiful cascading plants in suspended baskets that save floor space and add vertical interest. Includes macramé hangers, metal frames, and self-watering options.
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+
+
+          <div class="plant_card card_twelve" id="card_img12">
+              <div class="card_header">
+                <h2 class="card_title" id="card_title12">Modern Planters</h2>
+              </div>
+              <p class="card_text" id="card_text12">
+               Sleek geometric designs in concrete, metal, and recycled materials. Perfect for contemporary interiors, these planters combine functionality with minimalist aesthetics.
+              </p>
+              <div class="line_card"></div>
+              <img src="img/moraceae.png" alt="Moraceae" class="card_button_img" />
+          </div>
+
+      </div>
+
 
       <div class="text_plant">
         <h1>New Plants</h1>
@@ -138,6 +283,7 @@
           and one-of-a-kind rare plants.
         </p>
       </div>
+
     </div>
   </section>
 
@@ -196,7 +342,7 @@
     </div>
 
     <div class="collection_leaves">
-      <div class="block_plant1">
+      <div class="block_plant1" onclick="showCardOne()">
         <img src="img/icon_search.png" alt="Search" />
         <div class="blur-overlay">
           <h1>Philodendron</h1>
@@ -207,25 +353,41 @@
         </div>
       </div>
 
-      <div class="block_plant2">
+      <div class="block_plant2" onclick="showCardtoo()">
         <img src="img/icon_white.png" alt="Icon" />
         <h1>Calathea</h1>
       </div>
     </div>
 
     <div class="collection_leaves">
-      <div class="block_plant2 leaf-decor">
+      <div class="block_plant2 leaf-decor" onclick="showCardthree()">
         <img src="img/icon_white.png" alt="Icon" />
         <h1>Air Purifying</h1>
       </div>
-      <div class="block_plant1 leaf-element">
+      <div class="block_plant1 leaf-element" onclick="showCardfour()">
         <img src="img/icon_white.png" alt="Icon" />
         <h1>Low Light Tolerant</h1>
       </div>
     </div>
   </section>
 
+  
+  <div class="modal-video" id="modal_video">
+    <div class="modal-cr">
+       <div class="btn-cross" onclick="crossBtn()"><h1>x</h1></div>
+      <div class="video-container">
+       
+       <video controls style="width: 100%; height: 100%;">
+             <source src="your-video.mp4" type="video/mp4"> Ваш браузер не поддерживает видео
+              </video>
+      </div>
+    </div>
+
+
+
+  </div>
   <section class="garden">
+
     <h1>Quality Plants and Curated <br />Goods</h1>
     <p>
       We offer a carefully curated selection of indoor and outdoor plants, hand crafted home goods that put <br />
@@ -312,38 +474,7 @@
     </div>
   </footer>
 
-
-
-
-
-
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const burger = document.querySelector('.burger-menu');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeBtn = document.querySelector('.close-menu');
-    
-    // Открыть меню
-    burger.addEventListener('click', () => {
-      mobileMenu.classList.add('active');
-      document.body.style.overflow = 'hidden'; // блокируем скролл
-    });
-    
-    // Закрыть меню
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = ''; // возвращаем скролл
-    });
-    
-    // Закрыть меню при клике вне контента
-    mobileMenu.addEventListener('click', (e) => {
-      if (e.target === mobileMenu) {
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  });
-</script>
+  <script src="script.js"></script>
+  <script src="modal.js"></script>
 </body>
 </html>
