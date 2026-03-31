@@ -1181,11 +1181,13 @@ body {
   }
   
   .garden-img {
-    padding: 60px 30px;
+    padding: 40px 60px;
+    background-size: contain;
+    background-position: center;
   }
-  
+
   .garden-img img {
-    width: 140px;
+    width: 100px;
   }
   
   .question {
@@ -1486,6 +1488,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px 50px;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .garden-img img {
+    width: 80px;
   }
 
   .close-menu {
@@ -1530,6 +1539,16 @@ body {
   .mobile-search img {
     width: 26px;
     height: 26px;
+  }
+
+  .garden-img {
+    padding: 25px 40px;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .garden-img img {
+    width: 70px;
   }
 
   .block_plant2{
