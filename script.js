@@ -236,6 +236,87 @@ if (pottedBtn) {
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
   change1(); // Показываем контент по умолчанию (Outdoor Plants)
+
+  // === СЛАЙДЕР ОТЗЫВОВ ===
+  const track = document.getElementById('testimonialsTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('sliderDots');
+  const cards = document.querySelectorAll('.testimonial-card');
+
+  if (track && prevBtn && nextBtn && dotsContainer) {
+    let currentIndex = 0;
+    const cardWidth = 400;
+    const gap = 30;
+
+    // Создаём точки
+    cards.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('slider-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.slider-dot');
+
+    function updateDots() {
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      const scrollPosition = currentIndex * (cardWidth + gap);
+      track.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+      updateDots();
+    }
+
+    function updateOnScroll() {
+      const scrollPosition = track.scrollLeft;
+      const newIndex = Math.round(scrollPosition / (cardWidth + gap));
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < cards.length) {
+        currentIndex = newIndex;
+        updateDots();
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        goToSlide(currentIndex - 1);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < cards.length - 1) {
+        goToSlide(currentIndex + 1);
+      }
+    });
+
+    track.addEventListener('scroll', updateOnScroll);
+
+    // Автопрокрутка
+    let autoScroll = setInterval(() => {
+      if (currentIndex < cards.length - 1) {
+        goToSlide(currentIndex + 1);
+      } else {
+        goToSlide(0);
+      }
+    }, 5000);
+
+    // Останавливаем автопрокрутку при наведении
+    track.addEventListener('mouseenter', () => clearInterval(autoScroll));
+    track.addEventListener('mouseleave', () => {
+      autoScroll = setInterval(() => {
+        if (currentIndex < cards.length - 1) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(0);
+        }
+      }, 5000);
+    });
+  }
 });
 
 

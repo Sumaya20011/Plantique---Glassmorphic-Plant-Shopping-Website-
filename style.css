@@ -1020,6 +1020,29 @@ body {
     margin-top: 30px;
     font-size: 16px;
   }
+
+  /* Адаптив для отзывов */
+  .testimonials {
+    padding: 80px 20px;
+  }
+
+  .testimonials-header h1 {
+    font-size: 42px;
+  }
+
+  .testimonials-header p {
+    font-size: 18px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 320px;
+    padding: 30px 24px;
+  }
+
+  .slider-btn {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 /* === АДАПТИВ ДЛЯ МОБИЛЬНЫХ (< 768px) === */
@@ -1266,6 +1289,56 @@ body {
     margin-top: 20px;
     font-size: 16px;
     padding: 0 10px;
+  }
+
+  /* Адаптив для отзывов на мобильных */
+  .testimonials {
+    padding: 60px 15px;
+  }
+
+  .testimonials-header h1 {
+    font-size: 32px;
+  }
+
+  .testimonials-header p {
+    font-size: 16px;
+  }
+
+  .testimonials-slider {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .testimonials-track {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 280px;
+    padding: 24px 20px;
+  }
+
+  .testimonial-rating {
+    font-size: 20px;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+  }
+
+  .slider-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .author-info h4 {
+    font-size: 16px;
   }
 }
 
@@ -1558,6 +1631,165 @@ body {
   .block_plant1{
     padding-top: 70px;
   }
+}
+
+/* === СЕКЦИЯ ОТЗЫВОВ === */
+.testimonials {
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.testimonials-header h1 {
+  font-family: "Lurga", sans-serif;
+  font-size: 56px;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.testimonials-header p {
+  font-family: "Lurga", sans-serif;
+  font-size: 20px;
+  color: #6b7280;
+}
+
+.testimonials-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 20px 0;
+}
+
+.testimonials-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-card {
+  flex: 0 0 400px;
+  scroll-snap-align: center;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f3f4f6;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-rating {
+  font-size: 24px;
+  color: #fbbf24;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+}
+
+.testimonial-text {
+  font-family: "Lurga", sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e5e7eb;
+}
+
+.author-info h4 {
+  font-family: "Lurga", sans-serif;
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.author-info span {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.slider-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  color: #1f2937;
+}
+
+.slider-btn:hover {
+  background: #1f2937;
+  border-color: #1f2937;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.slider-btn:active {
+  transform: scale(0.95);
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  background: #1f2937;
+  width: 32px;
+  border-radius: 6px;
+}
+
+.slider-dot:hover {
+  background: #9ca3af;
 }
 
 .visible_plants{
