@@ -374,11 +374,11 @@
   
   <div class="modal-video" id="modal_video">
     <div class="modal-cr">
-       <div class="btn-cross" onclick="crossBtn()"><h1>x</h1></div>
+     <button onclick="crossBtn()" class="btn-cross">X</button>
       <div class="video-container">
        
        <video controls style="width: 100%; height: 100%;">
-             <source src="your-video.mp4" type="video/mp4"> Ваш браузер не поддерживает видео
+             <source src="video/video1.mp4" type="video/mp4"> Ваш браузер не поддерживает видео
               </video>
       </div>
     </div>
@@ -395,7 +395,7 @@
       arrangements, vessels, and holders.
     </p>
     <div class="garden-container">
-      <div class="garden-img">
+      <div class="garden-img" onclick="OpenModalVideo()" >
         <img src="img/kk.png" alt="Garden goods" />
       </div>
     </div>
@@ -476,5 +476,7 @@
 
   <script src="script.js"></script>
   <script src="modal.js"></script>
+
+  
 </body>
 </html>

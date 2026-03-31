@@ -14,6 +14,10 @@ function closeModal(){
     modalOverlay.style.display="none";
 }
 
+function OpenModalVideo(){
+    modal_video.style.display="flex";
+}
+
 function showCardOne(){
     modalOverlay.style.display="flex";
     modalImg.src="img/bagroundleaves3.jpg";

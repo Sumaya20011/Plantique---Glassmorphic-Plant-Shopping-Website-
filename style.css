@@ -1591,18 +1591,28 @@ body {
   align-items: center;
   z-index: 1000;
   transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-video.active{
   opacity: 1;
+  visibility: visible;
 }
 
 .modal-cr{
   background: #fff;
   border-radius: 20px;
   width: 90%;
-  max-width: 800px;
+  max-width: 1200px;
   position: relative;
   transform: scale(0.7);
-  transition: transform 0.3s ease;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 3);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-video.active .modal-cr{
+  transform: scale(1);
 }
 
 .video-container{
@@ -1612,10 +1622,11 @@ body {
   align-items: center;
   height: 500px;
   position: relative;
+
+  
 }
 
 .btn-cross{
-  position: absolute;
   width: 43px;
   height: 43px;
   background-color: #000000;
@@ -1624,7 +1635,7 @@ body {
   text-align: center;
   left: 93%;
   margin-top: 4px;
- 
+  cursor: pointer;
 }
 
 .modal-content{
@@ -1637,6 +1648,7 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   gap: 25px;
   position: relative;
+  
 }
 
 .modalImg{
