@@ -1792,6 +1792,254 @@ body {
   background: #9ca3af;
 }
 
+/* === СТРАНИЦА ИЗБРАННОГО === */
+.favorites-page {
+  padding: 80px 20px;
+  min-height: 70vh;
+  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+}
+
+.favorites-page h1 {
+  font-family: "Lurga", sans-serif;
+  font-size: 56px;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.favorites-subtitle {
+  font-family: "Lurga", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 60px;
+}
+
+.favorites-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.favorite-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.favorite-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.remove-favorite {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.remove-favorite:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  transform: scale(1.1);
+}
+
+.favorite-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.favorite-info {
+  padding: 24px;
+}
+
+.favorite-info h3 {
+  font-family: "Lurga", sans-serif;
+  font-size: 22px;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.favorite-price {
+  font-family: "Lurga", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.add-to-cart-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #000000;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: #1f2937;
+  transform: scale(1.1);
+}
+
+/* Пустое состояние */
+.favorites-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.favorites-empty img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 30px;
+  opacity: 0.5;
+}
+
+.favorites-empty h2 {
+  font-family: "Lurga", sans-serif;
+  font-size: 32px;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.favorites-empty p {
+  font-family: "Lurga", sans-serif;
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.browse-btn {
+  padding: 16px 40px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 60px;
+  font-family: "Lurga", sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.browse-btn:hover {
+  background: #1f2937;
+  transform: scale(1.05);
+}
+
+/* Сердечко в карточках товаров */
+.new_plant_card .heart_icon {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.new_plant_card .heart_icon:hover {
+  transform: scale(1.2);
+}
+
+.new_plant_card .heart_icon.active {
+  filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.5));
+}
+
+/* Адаптив для избранного */
+@media (max-width: 1024px) {
+  .favorites-page h1 {
+    font-size: 42px;
+  }
+
+  .favorites-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .favorites-page {
+    padding: 60px 15px;
+  }
+
+  .favorites-page h1 {
+    font-size: 32px;
+  }
+
+  .favorites-subtitle {
+    font-size: 16px;
+  }
+
+  .favorites-container {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 20px;
+  }
+
+  .favorite-image {
+    height: 240px;
+  }
+
+  .favorites-empty img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .favorites-empty h2 {
+    font-size: 26px;
+  }
+
+  .favorites-empty p {
+    font-size: 16px;
+  }
+
+  .browse-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .favorites-page h1 {
+    font-size: 28px;
+  }
+
+  .favorite-info h3 {
+    font-size: 20px;
+  }
+
+  .favorite-price {
+    font-size: 18px;
+  }
+}
+
 .visible_plants{
   display: flex;
   justify-content: center;

@@ -45,6 +45,9 @@
       <img src="img/icon_search.png" alt="Search" />
       <button class="transparent-btn">Shop</button>
       <button class="transparent-btn">Log in</button>
+      <a href="favorites.html" style="text-decoration: none;">
+        <button class="transparent-btn" id="favoritesCount">❤️ <span id="favCount">0</span></button>
+      </a>
     </div>
 
     <!-- Бургер-меню (только для мобильных) -->
@@ -289,7 +292,7 @@
 
   <section class="new_plants">
     <div class="hero_plants">
-      <div class="new_plant_card">
+      <div class="new_plant_card" data-id="plant-1">
         <img src="img/new_Plant.png" alt="Peperomia" />
         <img class="heart_icon" src="img/heart_icon.png" alt="Favorite" />
         <h1>Peperomia Plants</h1>
@@ -304,7 +307,7 @@
         </div>
       </div>
 
-      <div class="new_plant_card">
+      <div class="new_plant_card" data-id="plant-2">
         <img src="img/plnat_card.png" alt="Another plant" />
         <img class="heart_icon" src="img/heart_icon.png" alt="Favorite" />
         <h1>Peperomia Plants</h1>
@@ -319,7 +322,7 @@
         </div>
       </div>
 
-      <div class="new_plant_card">
+      <div class="new_plant_card" data-id="plant-3">
         <img src="img/card_plant_new.png" alt="Third plant" />
         <img class="heart_icon" src="img/heart_icon.png" alt="Favorite" />
         <h1>Peperomia Plants</h1>
@@ -562,6 +565,7 @@
 
   <script src="script.js"></script>
   <script src="modal.js"></script>
+  <script src="favorites.js"></script>
 
   
 </body>

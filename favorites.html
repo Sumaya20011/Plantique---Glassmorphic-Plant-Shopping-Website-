@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites - Plantique</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="conteiner-img">
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <img src="img/logo.png" alt="Logo" />
+          <button class="button1" onclick="window.location.href='index.html'">Home</button>
+          <button class="transparent-btn" onclick="window.location.href='index.html#contact'">Contact</button>
+          <button class="transparent-btn" onclick="window.location.href='index.html#blog'">Blog</button>
+        </div>
+
+        <div class="header-right">
+          <img src="img/icon_search.png" alt="Search" />
+          <button class="transparent-btn" onclick="window.location.href='index.html#shop'">Shop</button>
+          <button class="transparent-btn" onclick="window.location.href='index.html#login'">Log in</button>
+          <a href="favorites.html" style="text-decoration: none;">
+            <button class="transparent-btn" id="favoritesCount">❤️ <span id="favCount">0</span></button>
+          </a>
+        </div>
+
+        <button class="burger-menu" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="favorites-page">
+      <h1>My Favorites</h1>
+      <p class="favorites-subtitle">Your saved plants</p>
+
+      <div class="favorites-container" id="favoritesContainer">
+        <!-- Карточки будут добавлены через JS -->
+      </div>
+
+      <div class="favorites-empty" id="favoritesEmpty" style="display: none;">
+        <img src="img/heart_icon.png" alt="Empty favorites" />
+        <h2>No favorites yet</h2>
+        <p>Start adding plants you love by clicking the heart icon</p>
+        <button class="browse-btn" onclick="window.location.href='index.html'">Browse Plants</button>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-parent">
+        <div class="footer-img">
+          <img src="img/lines.png" alt="">
+        </div>
+
+        <div class="footer-text">
+          <h1>Join the Community!</h1>
+          <p>Subscribe to The Forager to receive monthly plant tips,<br> store updates, promotions & more</p>
+        </div>
+      </div>
+
+      <div class="blockwhite">
+        <div class="but">
+          <div class="social">
+            <a href="#" class="social-btn instagram">Instagram</a>
+            <a href="#" class="social-btn twitter">Twitter</a>
+            <a href="#" class="social-btn linkedin">LinkedIn</a>
+            <a href="#" class="social-btn whatsapp">WhatsApp</a>
+            <a href="#" class="social-btn pinterest">Pinterest</a>
+          </div>
+        </div>
+        <hr><p>©2023, All Right Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="favorites.js"></script>
+</body>
+</html>
