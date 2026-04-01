@@ -237,6 +237,26 @@ if (pottedBtn) {
 document.addEventListener('DOMContentLoaded', function() {
   change1(); // Показываем контент по умолчанию (Outdoor Plants)
 
+  // === АНИМАЦИЯ ПРИ СКРОЛЛЕ ===
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Наблюдаем за всеми элементами с классом анимации
+  document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+    observer.observe(el);
+  });
+
   // === СЛАЙДЕР ОТЗЫВОВ ===
   const track = document.getElementById('testimonialsTrack');
   const prevBtn = document.getElementById('prevBtn');
