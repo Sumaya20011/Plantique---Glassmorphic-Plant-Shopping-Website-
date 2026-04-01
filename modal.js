@@ -10,6 +10,14 @@ let modal_video=document.getElementById("modal_video");
 function crossBtn(){
     modal_video.classList.remove("active");
     document.body.style.overflow = "";
+    
+    // Останавливаем видео при закрытии
+    const videoFrame = document.getElementById("videoFrame");
+    if (videoFrame) {
+        const iframeSrc = videoFrame.src;
+        videoFrame.src = iframeSrc; // Перезагружаем iframe для остановки видео
+    }
+    
     setTimeout(() => {
         modal_video.style.display = "none";
     }, 400);
