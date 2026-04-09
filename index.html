@@ -45,9 +45,7 @@
       <img src="img/icon_search.png" alt="Search" />
       <button class="transparent-btn">Shop</button>
       <button class="transparent-btn">Log in</button>
-      <a href="favorites.html" style="text-decoration: none;">
-        <button class="transparent-btn" id="favoritesCount">❤️ <span id="favCount">0</span></button>
-      </a>
+
     </div>
 
     <!-- Бургер-меню (только для мобильных) -->
@@ -567,7 +565,7 @@
       </svg>
       <span class="badge" id="floatingFavCount">0</span>
     </button>
-    <button class="floating-btn cart-btn" title="Корзина">
+    <button class="floating-btn cart-btn" onclick="window.location.href='cart.html'" title="Корзина">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M9 2C9 1.44772 9.44772 1 10 1H14C14.5523 1 15 1.44772 15 2V4H20C20.5523 4 21 4.44772 21 5C21 5.55228 20.5523 6 20 6H19.9199L19.1735 17.1425C19.0674 18.7289 17.7529 20 16.1622 20H7.8378C6.24711 20 4.93262 18.7289 4.82653 17.1425L4.08008 6H4C3.44772 6 3 5.55228 3 5C3 4.44772 3.44772 4 4 4H9V2ZM13 4V3H11V4H13ZM6.07425 6L6.81311 17.0083C6.84841 17.5359 7.28704 17.9456 7.81539 17.9456H16.1846C16.713 17.9456 17.1516 17.5359 17.1869 17.0083L17.9257 6H6.07425Z" fill="currentColor"/>
         <path d="M9 9C9.55228 9 10 9.44772 10 10V14C10 14.5523 9.55228 15 9 15C8.44772 15 8 14.5523 8 14V10C8 9.44772 8.44772 9 9 9Z" fill="currentColor"/>
@@ -580,6 +578,7 @@
   <script src="script.js"></script>
   <script src="modal.js"></script>
   <script src="favorites.js"></script>
+  <script src="cart.js"></script>
 
 
 </body>
