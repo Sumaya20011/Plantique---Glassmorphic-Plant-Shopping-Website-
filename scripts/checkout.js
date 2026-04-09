@@ -208,7 +208,7 @@ function handleCheckout(event) {
     if (cart.length === 0) {
         showNotification('Корзина пуста!');
         setTimeout(() => {
-            window.location.href = 'cart.html';
+            window.location.href = '../pages/cart.html';
         }, 1000);
         return false;
     }
@@ -266,7 +266,7 @@ function handleCheckout(event) {
 
     // Переход на страницу успеха
     setTimeout(() => {
-        window.location.href = 'order-success.html';
+        window.location.href = '../pages/order-success.html';
     }, 1000);
 
     return false;
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cart.length === 0) {
         showNotification('Корзина пуста!');
         setTimeout(() => {
-            window.location.href = 'cart.html';
+            window.location.href = '../pages/cart.html';
         }, 1500);
         return;
     }

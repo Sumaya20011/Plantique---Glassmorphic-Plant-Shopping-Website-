@@ -23,7 +23,7 @@ function setCurrentUser(user) {
 // Выход из аккаунта
 function logout() {
     localStorage.removeItem('currentUser');
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 }
 
 // Регистрация нового пользователя
@@ -57,7 +57,7 @@ function register(email, password, name) {
     showNotification('Регистрация успешна! Добро пожаловать, ' + name + '!');
     
     setTimeout(() => {
-        window.location.href = 'profile.html';
+        window.location.href = '../pages/profile.html';
     }, 1000);
     
     return true;
@@ -80,7 +80,7 @@ function login(email, password) {
     showNotification('Добро пожаловать, ' + user.name + '!');
     
     setTimeout(() => {
-        window.location.href = 'profile.html';
+        window.location.href = '../pages/profile.html';
     }, 1000);
     
     return true;
@@ -163,7 +163,7 @@ function showNotification(message) {
 function requireAuth() {
     const currentUser = getCurrentUser();
     if (!currentUser) {
-        window.location.href = 'login.html';
+        window.location.href = '../pages/login.html';
         return null;
     }
     return currentUser;
