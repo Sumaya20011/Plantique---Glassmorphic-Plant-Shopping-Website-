@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оформление заказа - Plantique</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="conteiner-img">
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" style="text-decoration: none;">
+            <img src="img/logo.png" alt="Logo" />
+          </a>
+          <a href="index.html" style="text-decoration: none;">
+            <button class="button1">Главная</button>
+          </a>
+        </div>
+        <div class="header-right">
+          <a href="cart.html" style="text-decoration: none;">
+            <button class="transparent-btn">Вернуться в корзину</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="checkout-page">
+      <div class="checkout-container fade-in">
+        <div class="checkout-header">
+          <h1>Оформление заказа</h1>
+          <p>Заполните данные для доставки</p>
+        </div>
+
+        <div class="checkout-steps">
+          <div class="step active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-label">Данные</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-label">Доставка</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-label">Оплата</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" data-step="4">
+            <div class="step-number">4</div>
+            <div class="step-label">Готово!</div>
+          </div>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm" onsubmit="return handleCheckout(event)">
+          <!-- Шаг 1: Данные покупателя -->
+          <div class="checkout-section active" id="section-1">
+            <h2>Контактные данные</h2>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">Имя *</label>
+                <input type="text" id="firstName" name="firstName" required placeholder="Ваше имя" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Фамилия *</label>
+                <input type="text" id="lastName" name="lastName" required placeholder="Ваша фамилия" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Телефон *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67" />
+            </div>
+
+            <button type="button" class="btn-next" onclick="nextStep(2)">
+              Далее: Адрес доставки
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M7.5 10H14.5M14.5 10L11.5 7M14.5 10L11.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Шаг 2: Адрес доставки -->
+          <div class="checkout-section" id="section-2">
+            <h2>Адрес доставки</h2>
+            
+            <div class="form-group">
+              <label for="address">Улица и дом *</label>
+              <input type="text" id="address" name="address" required placeholder="ул. Примерная, д. 123, кв. 45" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">Город *</label>
+                <input type="text" id="city" name="city" required placeholder="Москва" />
+              </div>
+              <div class="form-group">
+                <label for="zipcode">Индекс *</label>
+                <input type="text" id="zipcode" name="zipcode" required placeholder="123456" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="country">Страна *</label>
+              <select id="country" name="country" required>
+                <option value="">Выберите страну</option>
+                <option value="RU">Россия</option>
+                <option value="BY">Беларусь</option>
+                <option value="KZ">Казахстан</option>
+                <option value="UA">Украина</option>
+                <option value="UZ">Узбекистан</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="comment">Комментарий к заказу</label>
+              <textarea id="comment" name="comment" placeholder="Дополнительная информация для курьера" rows="3"></textarea>
+            </div>
+
+            <div class="btn-row">
+              <button type="button" class="btn-prev" onclick="prevStep(1)">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M12.5 10H5.5M5.5 10L8.5 7M5.5 10L8.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Назад
+              </button>
+              <button type="button" class="btn-next" onclick="nextStep(3)">
+                Далее: Оплата
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M7.5 10H14.5M14.5 10L11.5 7M14.5 10L11.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Шаг 3: Оплата -->
+          <div class="checkout-section" id="section-3">
+            <h2>Способ оплаты</h2>
+            
+            <div class="payment-methods">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="card" checked />
+                <div class="payment-card">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect x="5" y="10" width="30" height="20" rx="3" stroke="#10b981" stroke-width="2"/>
+                    <line x1="5" y1="16" x2="35" y2="16" stroke="#10b981" stroke-width="2"/>
+                    <rect x="10" y="22" width="8" height="3" rx="1" fill="#10b981"/>
+                  </svg>
+                  <div class="payment-info">
+                    <h4>Банковская карта</h4>
+                    <p>Visa, Mastercard, МИР</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cash" />
+                <div class="payment-card">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="15" stroke="#10b981" stroke-width="2"/>
+                    <text x="20" y="25" text-anchor="middle" fill="#10b981" font-size="16" font-weight="bold">₽</text>
+                  </svg>
+                  <div class="payment-info">
+                    <h4>Наличные</h4>
+                    <p>При получении</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="payment" value="online" />
+                <div class="payment-card">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect x="8" y="8" width="24" height="24" rx="4" stroke="#10b981" stroke-width="2"/>
+                    <path d="M15 20L18 23L25 16" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <div class="payment-info">
+                    <h4>Онлайн оплата</h4>
+                    <p>СБП, ЮMoney, QIWI</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <div class="btn-row">
+              <button type="button" class="btn-prev" onclick="prevStep(2)">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M12.5 10H5.5M5.5 10L8.5 7M5.5 10L8.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Назад
+              </button>
+              <button type="button" class="btn-next" onclick="nextStep(4)">
+                Далее: Подтверждение
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M7.5 10H14.5M14.5 10L11.5 7M14.5 10L11.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Шаг 4: Подтверждение -->
+          <div class="checkout-section" id="section-4">
+            <h2>Подтверждение заказа</h2>
+            
+            <div class="order-review">
+              <div class="review-block">
+                <h3>Контактные данные</h3>
+                <p id="reviewContact"></p>
+              </div>
+
+              <div class="review-block">
+                <h3>Адрес доставки</h3>
+                <p id="reviewAddress"></p>
+              </div>
+
+              <div class="review-block">
+                <h3>Способ оплаты</h3>
+                <p id="reviewPayment"></p>
+              </div>
+
+              <div class="review-block">
+                <h3>Ваш заказ</h3>
+                <div id="reviewItems"></div>
+                <div class="review-total">
+                  <span>Итого:</span>
+                  <span id="reviewTotal"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button type="button" class="btn-prev" onclick="prevStep(3)">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M12.5 10H5.5M5.5 10L8.5 7M5.5 10L8.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Назад
+              </button>
+              <button type="submit" class="btn-confirm">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Подтвердить заказ
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>

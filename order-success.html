@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Заказ оформлен! - Plantique</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="conteiner-img">
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" style="text-decoration: none;">
+            <img src="img/logo.png" alt="Logo" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="success-page">
+      <div class="success-container fade-in">
+        <div class="success-icon">
+          <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" fill="#10b981" opacity="0.2"/>
+            <circle cx="50" cy="50" r="35" fill="#10b981" opacity="0.4"/>
+            <path d="M35 50L45 60L65 40" stroke="#10b981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        
+        <h1>Заказ оформлен!</h1>
+        <p class="success-message">Спасибо за покупку! Мы отправим вам email с подтверждением заказа.</p>
+        
+        <div class="order-details">
+          <h2>Детали заказа</h2>
+          <div class="order-info">
+            <div class="info-row">
+              <span class="label">Номер заказа:</span>
+              <span class="value" id="orderNumber">#000000</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Дата:</span>
+              <span class="value" id="orderDate"></span>
+            </div>
+            <div class="info-row">
+              <span class="label">Сумма:</span>
+              <span class="value" id="orderTotal"></span>
+            </div>
+            <div class="info-row">
+              <span class="label">Статус:</span>
+              <span class="value status">Подтверждается</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-actions">
+          <a href="index.html" class="auth-btn primary">Продолжить покупки</a>
+          <a href="profile.html" class="auth-btn secondary">Перейти в профиль</a>
+        </div>
+
+        <div class="success-tips">
+          <h3>Что дальше?</h3>
+          <ul>
+            <li>✓ Мы отправим подтверждение на ваш email</li>
+            <li>✓ Наш менеджер свяжется с вами в ближайшее время</li>
+            <li>✓ Вы можете отслеживать статус заказа в профиле</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="checkout.js"></script>
+  <script>
+    // Показать детали заказа
+    document.addEventListener('DOMContentLoaded', function() {
+      const lastOrder = JSON.parse(localStorage.getItem('lastOrder'));
+      
+      if (lastOrder) {
+        document.getElementById('orderNumber').textContent = '#' + lastOrder.id;
+        document.getElementById('orderDate').textContent = new Date(lastOrder.date).toLocaleDateString('ru-RU');
+        document.getElementById('orderTotal').textContent = lastOrder.total;
+      }
+
+      setTimeout(() => {
+        document.querySelector('.success-container').classList.add('visible');
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>

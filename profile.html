@@ -102,18 +102,20 @@
 
         <!-- Вкладка: Мои заказы -->
         <div class="tab-content" id="tab-orders">
-          <div class="orders-empty">
-            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="20" y="30" width="60" height="50" rx="4" stroke="#D1D5DB" stroke-width="3"/>
-              <path d="M35 30V25C35 22.2386 37.2386 20 40 20H60C62.7614 20 65 22.2386 65 25V30" stroke="#D1D5DB" stroke-width="3"/>
-              <circle cx="50" cy="55" r="8" stroke="#D1D5DB" stroke-width="3"/>
-              <path d="M50 52V55L53 57" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <h2>У вас пока нет заказов</h2>
-            <p>Когда вы оформите заказы, они появятся здесь</p>
-            <a href="index.html" class="auth-btn primary" style="display: inline-block; text-decoration: none; margin-top: 20px;">
-              Перейти к покупкам
-            </a>
+          <div id="ordersContainer">
+            <div class="orders-empty">
+              <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="30" width="60" height="50" rx="4" stroke="#D1D5DB" stroke-width="3"/>
+                <path d="M35 30V25C35 22.2386 37.2386 20 40 20H60C62.7614 20 65 22.2386 65 25V30" stroke="#D1D5DB" stroke-width="3"/>
+                <circle cx="50" cy="55" r="8" stroke="#D1D5DB" stroke-width="3"/>
+                <path d="M50 52V55L53 57" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <h2>У вас пока нет заказов</h2>
+              <p>Когда вы оформите заказы, они появятся здесь</p>
+              <a href="index.html" class="auth-btn primary" style="display: inline-block; text-decoration: none; margin-top: 20px;">
+                Перейти к покупкам
+              </a>
+            </div>
           </div>
         </div>
 
@@ -275,8 +277,89 @@
           // Добавить активный класс
           btn.classList.add('active');
           document.getElementById('tab-' + tabId).classList.add('active');
+
+          // Загрузить заказы при открытии вкладки
+          if (tabId === 'orders') {
+            loadOrders();
+          }
         });
       });
+    }
+
+    // Загрузка заказов
+    function loadOrders() {
+      const container = document.getElementById('ordersContainer');
+      
+      // Загрузка заказов пользователя
+      const userOrders = JSON.parse(localStorage.getItem('userOrders_' + currentUser.id)) || [];
+      
+      if (userOrders.length === 0) {
+        container.innerHTML = `
+          <div class="orders-empty">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="30" width="60" height="50" rx="4" stroke="#D1D5DB" stroke-width="3"/>
+              <path d="M35 30V25C35 22.2386 37.2386 20 40 20H60C62.7614 20 65 22.2386 65 25V30" stroke="#D1D5DB" stroke-width="3"/>
+              <circle cx="50" cy="55" r="8" stroke="#D1D5DB" stroke-width="3"/>
+              <path d="M50 52V55L53 57" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h2>У вас пока нет заказов</h2>
+            <p>Когда вы оформите заказы, они появятся здесь</p>
+            <a href="index.html" class="auth-btn primary" style="display: inline-block; text-decoration: none; margin-top: 20px;">
+              Перейти к покупкам
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      // Отрисовка заказов
+      const ordersHtml = userOrders.map(order => `
+        <div class="order-card">
+          <div class="order-header">
+            <div>
+              <h3>Заказ #${order.id}</h3>
+              <p class="order-date">${new Date(order.date).toLocaleDateString('ru-RU')}</p>
+            </div>
+            <div class="order-status ${order.status}">
+              ${getStatusText(order.status)}
+            </div>
+          </div>
+          <div class="order-items">
+            ${order.items.map(item => `
+              <div class="order-item">
+                <span>${item.name} × ${item.quantity}</span>
+                <span>${item.price}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="order-total">
+            <span>Итого:</span>
+            <span>${formatPrice(order.total)}</span>
+          </div>
+        </div>
+      `).join('');
+
+      container.innerHTML = `<div class="orders-list">${ordersHtml}</div>`;
+    }
+
+    // Получение текста статуса
+    function getStatusText(status) {
+      const statusMap = {
+        'pending': 'Подтверждается',
+        'processing': 'В обработке',
+        'shipped': 'Отправлен',
+        'delivered': 'Доставлен',
+        'cancelled': 'Отменен'
+      };
+      return statusMap[status] || status;
+    }
+
+    // Форматирование цены
+    function formatPrice(price) {
+      if (typeof price === 'number') {
+        return '₹' + price.toLocaleString('en-IN');
+      }
+      return price;
     }
 
     // Инициализация
