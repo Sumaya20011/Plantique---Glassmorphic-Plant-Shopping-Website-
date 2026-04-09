@@ -559,10 +559,28 @@
     </div>
   </footer>
 
+  <!-- Плавающая кнопка корзины/избранного -->
+  <div class="floating-actions">
+    <button class="floating-btn favorites-btn" onclick="window.location.href='favorites.html'" title="Избранное">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+      </svg>
+      <span class="badge" id="floatingFavCount">0</span>
+    </button>
+    <button class="floating-btn cart-btn" title="Корзина">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2C9 1.44772 9.44772 1 10 1H14C14.5523 1 15 1.44772 15 2V4H20C20.5523 4 21 4.44772 21 5C21 5.55228 20.5523 6 20 6H19.9199L19.1735 17.1425C19.0674 18.7289 17.7529 20 16.1622 20H7.8378C6.24711 20 4.93262 18.7289 4.82653 17.1425L4.08008 6H4C3.44772 6 3 5.55228 3 5C3 4.44772 3.44772 4 4 4H9V2ZM13 4V3H11V4H13ZM6.07425 6L6.81311 17.0083C6.84841 17.5359 7.28704 17.9456 7.81539 17.9456H16.1846C16.713 17.9456 17.1516 17.5359 17.1869 17.0083L17.9257 6H6.07425Z" fill="currentColor"/>
+        <path d="M9 9C9.55228 9 10 9.44772 10 10V14C10 14.5523 9.55228 15 9 15C8.44772 15 8 14.5523 8 14V10C8 9.44772 8.44772 9 9 9Z" fill="currentColor"/>
+        <path d="M15 9C15.5523 9 16 9.44772 16 10V14C16 14.5523 15.5523 15 15 15C14.4477 15 14 14.5523 14 14V10C14 9.44772 14.4477 9 15 9Z" fill="currentColor"/>
+      </svg>
+      <span class="badge" id="floatingCartCount">0</span>
+    </button>
+  </div>
+
   <script src="script.js"></script>
   <script src="modal.js"></script>
   <script src="favorites.js"></script>
 
-  
+
 </body>
 </html>

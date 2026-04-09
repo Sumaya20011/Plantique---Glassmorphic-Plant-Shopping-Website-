@@ -4,8 +4,15 @@ let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 // Обновление счётчика избранного
 function updateFavoritesCount() {
     const countElement = document.getElementById('favCount');
+    const floatingCount = document.getElementById('floatingFavCount');
+    
     if (countElement) {
         countElement.textContent = favorites.length;
+    }
+    if (floatingCount) {
+        floatingCount.textContent = favorites.length;
+        // Скрываем badge если 0
+        floatingCount.style.display = favorites.length > 0 ? 'flex' : 'none';
     }
 }
 
