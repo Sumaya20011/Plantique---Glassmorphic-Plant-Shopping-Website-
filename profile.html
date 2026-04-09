@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профиль - Plantique</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="conteiner-img">
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" style="text-decoration: none;">
+            <img src="img/logo.png" alt="Logo" />
+          </a>
+          <a href="index.html" style="text-decoration: none;">
+            <button class="button1">Главная</button>
+          </a>
+        </div>
+        <div class="header-right">
+          <a href="favorites.html" style="text-decoration: none;">
+            <button class="transparent-btn">Избранное</button>
+          </a>
+          <a href="cart.html" style="text-decoration: none;">
+            <button class="transparent-btn">Корзина</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="profile-page">
+      <div class="profile-container fade-in">
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="40" fill="#E5E7EB"/>
+              <circle cx="40" cy="32" r="14" fill="#6B7280"/>
+              <path d="M16 64C16 50.7452 26.7452 40 40 40C53.2548 40 64 50.7452 64 64" stroke="#6B7280" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h1 id="profileName">Загрузка...</h1>
+          <p id="profileEmail" class="profile-email"></p>
+        </div>
+
+        <div class="profile-tabs">
+          <button class="tab-btn active" data-tab="info">Личные данные</button>
+          <button class="tab-btn" data-tab="orders">Мои заказы</button>
+          <button class="tab-btn" data-tab="settings">Настройки</button>
+        </div>
+
+        <!-- Вкладка: Личные данные -->
+        <div class="tab-content active" id="tab-info">
+          <form class="profile-form" id="profileForm" onsubmit="return handleUpdateProfile(event)">
+            <div class="form-group">
+              <label for="editName">Имя</label>
+              <input 
+                type="text" 
+                id="editName" 
+                name="name" 
+                required
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="editEmail">Email</label>
+              <input 
+                type="email" 
+                id="editEmail" 
+                name="email" 
+                required
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="editPhone">Телефон</label>
+              <input 
+                type="tel" 
+                id="editPhone" 
+                name="phone" 
+                placeholder="+7 (999) 123-45-67"
+                autocomplete="tel"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="editAddress">Адрес доставки</label>
+              <textarea 
+                id="editAddress" 
+                name="address" 
+                placeholder="Введите ваш адрес"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="auth-btn primary">Сохранить изменения</button>
+          </form>
+        </div>
+
+        <!-- Вкладка: Мои заказы -->
+        <div class="tab-content" id="tab-orders">
+          <div class="orders-empty">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="30" width="60" height="50" rx="4" stroke="#D1D5DB" stroke-width="3"/>
+              <path d="M35 30V25C35 22.2386 37.2386 20 40 20H60C62.7614 20 65 22.2386 65 25V30" stroke="#D1D5DB" stroke-width="3"/>
+              <circle cx="50" cy="55" r="8" stroke="#D1D5DB" stroke-width="3"/>
+              <path d="M50 52V55L53 57" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h2>У вас пока нет заказов</h2>
+            <p>Когда вы оформите заказы, они появятся здесь</p>
+            <a href="index.html" class="auth-btn primary" style="display: inline-block; text-decoration: none; margin-top: 20px;">
+              Перейти к покупкам
+            </a>
+          </div>
+        </div>
+
+        <!-- Вкладка: Настройки -->
+        <div class="tab-content" id="tab-settings">
+          <form class="profile-form" id="passwordForm" onsubmit="return handleChangePassword(event)">
+            <h3>Изменение пароля</h3>
+            
+            <div class="form-group">
+              <label for="oldPassword">Текущий пароль</label>
+              <input 
+                type="password" 
+                id="oldPassword" 
+                name="oldPassword" 
+                required
+                autocomplete="current-password"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="newPassword">Новый пароль</label>
+              <input 
+                type="password" 
+                id="newPassword" 
+                name="newPassword" 
+                required
+                minlength="6"
+                autocomplete="new-password"
+              />
+              <span class="password-hint">Минимум 6 символов</span>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmNewPassword">Подтвердите новый пароль</label>
+              <input 
+                type="password" 
+                id="confirmNewPassword" 
+                name="confirmNewPassword" 
+                required
+                autocomplete="new-password"
+              />
+            </div>
+
+            <div class="auth-error" id="passwordError" style="display: none;"></div>
+
+            <button type="submit" class="auth-btn primary">Изменить пароль</button>
+          </form>
+
+          <div class="danger-zone">
+            <h3>Опасная зона</h3>
+            <button type="button" class="auth-btn danger" onclick="handleLogout()">
+              Выйти из аккаунта
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script>
+    // Проверка авторизации
+    const currentUser = requireAuth();
+
+    // Загрузка данных профиля
+    function loadProfile() {
+      if (!currentUser) return;
+
+      // Отображение имени и email
+      document.getElementById('profileName').textContent = currentUser.name || 'Пользователь';
+      document.getElementById('profileEmail').textContent = currentUser.email;
+
+      // Заполнение формы
+      document.getElementById('editName').value = currentUser.name || '';
+      document.getElementById('editEmail').value = currentUser.email || '';
+      document.getElementById('editPhone').value = currentUser.phone || '';
+      document.getElementById('editAddress').value = currentUser.address || '';
+    }
+
+    // Обновление профиля
+    function handleUpdateProfile(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('editName').value.trim();
+      const email = document.getElementById('editEmail').value.trim();
+      const phone = document.getElementById('editPhone').value.trim();
+      const address = document.getElementById('editAddress').value.trim();
+
+      if (!name || !email) {
+        showAuthError('Имя и email обязательны');
+        return false;
+      }
+
+      if (!isValidEmail(email)) {
+        showAuthError('Введите корректный email');
+        return false;
+      }
+
+      updateProfile({ name, email, phone, address });
+      
+      // Обновить отображение
+      document.getElementById('profileName').textContent = name;
+      document.getElementById('profileEmail').textContent = email;
+      
+      return false;
+    }
+
+    // Изменение пароля
+    function handleChangePassword(event) {
+      event.preventDefault();
+      
+      const oldPassword = document.getElementById('oldPassword').value;
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+      if (!oldPassword || !newPassword || !confirmNewPassword) {
+        showAuthError('Заполните все поля');
+        return false;
+      }
+
+      if (!isValidPassword(newPassword)) {
+        showAuthError('Новый пароль должен содержать минимум 6 символов');
+        return false;
+      }
+
+      if (newPassword !== confirmNewPassword) {
+        showAuthError('Пароли не совпадают');
+        return false;
+      }
+
+      if (changePassword(oldPassword, newPassword)) {
+        // Очистить форму
+        document.getElementById('passwordForm').reset();
+      }
+      
+      return false;
+    }
+
+    // Выход
+    function handleLogout() {
+      if (confirm('Вы уверены, что хотите выйти?')) {
+        logout();
+      }
+    }
+
+    // Переключение вкладок
+    function setupTabs() {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tabId = btn.getAttribute('data-tab');
+
+          // Убрать активные классы
+          tabButtons.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+
+          // Добавить активный класс
+          btn.classList.add('active');
+          document.getElementById('tab-' + tabId).classList.add('active');
+        });
+      });
+    }
+
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', function() {
+      loadProfile();
+      setupTabs();
+      
+      setTimeout(() => {
+        document.querySelector('.profile-container').classList.add('visible');
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>
