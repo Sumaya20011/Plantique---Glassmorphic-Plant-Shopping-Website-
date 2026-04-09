@@ -237,6 +237,39 @@ if (pottedBtn) {
 document.addEventListener('DOMContentLoaded', function() {
   change1(); // Показываем контент по умолчанию (Outdoor Plants)
 
+  // === ДОБАВЛЕНИЕ В КОРЗИНУ ПО КЛИКУ НА СТРЕЛКУ ===
+  const arrowButtons = document.querySelectorAll('.new_plant_card .arrow-button');
+  
+  arrowButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Находим родительскую карточку
+      const card = this.closest('.new_plant_card');
+      if (!card) return;
+      
+      // Получаем данные из карточки
+      const id = card.getAttribute('data-id');
+      const name = card.querySelector('h1')?.textContent || 'Plant';
+      const price = card.querySelector('.price-actions p')?.textContent || '₹0';
+      const image = card.querySelector('img:first-of-type')?.getAttribute('src') || '';
+      
+      // Визуальная обратная связь
+      this.classList.add('added');
+      setTimeout(() => {
+        this.classList.remove('added');
+      }, 600);
+      
+      // Вызываем функцию добавления в корзину
+      if (typeof addToCart === 'function') {
+        addToCart(id, name, price, image);
+      } else {
+        console.error('addToCart function not found');
+      }
+    });
+  });
+
   // === АНИМАЦИЯ ПРИ СКРОЛЛЕ ===
   const observerOptions = {
     root: null,
